@@ -1,12 +1,12 @@
-# Machine Learning Repository
+# Deep Learning Repository
 
-This repository contains a collection of machine learning projects covering various problems and techniques. Each project is grouped into one of the following categories:
+This repository contains a collection of deep learning projects covering various problems and techniques. Each project is grouped into one of the following categories:
 
 ## Classification Problems
 
 1. [Cardiovascular Prediction](https://github.com/M-ImranIsmael/Deep_Learning_Applications/tree/master/cardiovascular_prediction):
 
-   This project uses machine learning algorithms to predict whether a person is suffering from a cardiovascular disease based on various medical factors. The problem is framed as a binary classification problem, with the goal of accurately classifying patients as either having or not having the disease.
+   This project uses deep learning algorithms to predict whether a person is suffering from a cardiovascular disease based on various medical factors. The problem is framed as a binary classification problem, with the goal of accurately classifying patients as either having or not having the disease.
 
 2. [Customer Segmentation](https://github.com/M-ImranIsmael/Deep_Learning_Applications/tree/master/customer_segmentation_prediction):
 
