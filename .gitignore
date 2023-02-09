@@ -2,3 +2,8 @@ pictures/
 notes/
 TF/
 tensorboard_log/
+btc_prediction/
+topglove_stock_prediction/
+top_glove_prediction/
+customer_segmentation/
+__pycache__/
