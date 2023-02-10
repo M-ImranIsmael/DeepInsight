@@ -61,7 +61,7 @@ Each project folder contains all the necessary files, including scripts for trai
 
 ## Acknowledgment
 
-The projects are trained based on these datasets:
+The projects in this repository are made possible through the use of the following datasets:
 
 - [Cardio Vascular Disease Dataset](https://www.kaggle.com/datasets/sulianova/cardiovascular-disease-dataset?resource=download)
 - [Customer Segmentation Dataset](https://www.kaggle.com/datasets/abisheksudarshan/customer-segmentation)
