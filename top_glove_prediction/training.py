@@ -25,13 +25,13 @@ CSV_PATH = os.path.join(
 )
 
 
-#%% #*Step 1) Data Loading
+#%% Step 1) Data Loading
 df = pd.read_csv(CSV_PATH)
 column_names = df.columns
 print(column_names)
 
 
-#%% #* Step 2) EDA
+#%% Step 2) EDA
 
 print(df.head(3))
 print(df.info())
@@ -43,7 +43,7 @@ plt.plot(df["Open"])
 plt.show()
 
 
-#%% #* Step 3) Data Cleaning
+#%% Step 3) Data Cleaning
 
 # Interpolation to Handle missing values
 df["Open"] = df["Open"].interpolate(method="polynomial", order=2)
@@ -53,12 +53,12 @@ plt.plot(df["Open"])
 plt.show()
 
 
-#%% #* Step 4) Feature Selections
+#%% Step 4) Feature Selections
 
 data = df["Open"].values  # To obtain data in ndarray format
 
 
-#%% #* Step 5) Data Preprocessing
+#%% Step 5) Data Preprocessing
 
 mms = MinMaxScaler()
 data = mms.fit_transform(np.expand_dims(data, axis=-1))
