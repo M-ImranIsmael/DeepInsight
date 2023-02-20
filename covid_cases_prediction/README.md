@@ -2,31 +2,42 @@
 
 This project aims to forecast the number of Covid-19 daily cases in Malaysia. The daily cases data are obtained from the [Ministry of Health Malaysia's GitHub Repo](https://github.com/MoH-Malaysia/covid19-public).
 
-## Directory Structure:
+## Build With:
+
+<p align="left">  <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> <a href="https://www.tensorflow.org" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/tensorflow/tensorflow-icon.svg" alt="tensorflow" width="40" height="40"/> </a> <a href="https://scikit-learn.org/" target="_blank" rel="noreferrer"> <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="scikit_learn" width="40" height="40"/> </a> <a href="https://pandas.pydata.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/2ae2a900d2f041da66e950e4d48052658d850630/icons/pandas/pandas-original.svg" alt="pandas" width="40" height="40"/> </a>
+
+## Directory Structure
 
 1. [datasets](https://github.com/M-ImranIsmael/Deep_Learning_Applications/tree/master/covid_cases_prediction/datasets):
 
    - cases_malaysia_test.csv
    - cases_malaysia_train.csv
 
-2. [training.py](https://github.com/M-ImranIsmael/Deep_Learning_Applications/blob/master/covid_cases_prediction/imran_training.py) which consist of the following steps:
+2. [training.py](https://github.com/M-ImranIsmael/Deep_Learning_Applications/blob/master/covid_cases_prediction/imran_training.py):
 
    - Importing necessary libraries
    - Loading and cleaning the data and EDA
-     ### Daily New COVID-19 Cases in Malaysia Plot
-     ![alt text](pictures/Imran_new_cases_plot.png)
-   - Model selection and training
+   - Model selection and training using LSTM model
+   - Model saving and testing on new datasets
 
-     ### LSTM Model Architecture
+3. [model_and_pickle](https://github.com/M-ImranIsmael/Deep_Learning_Applications/tree/master/covid_cases_prediction/model_and_pickle): trained deep learning model and pickle file for mms
 
-     ![alt text](pictures/Imran_model_architecture.png)
+4. [pictures](https://github.com/M-ImranIsmael/Deep_Learning_Applications/tree/master/covid_cases_prediction/pictures): plots and results
 
-     ### Tensorboard Result
+## Results
 
-     ![alt text](pictures/Imran_tensorboard_epochloss.png)
-     ![alt text](pictures/Imran_tensorboard_epochmse.png)
+### Daily New COVID-19 Cases in Malaysia Plot
 
-## Results:
+![alt text](pictures/Imran_new_cases_plot.png)
+
+### LSTM Model Architecture
+
+![alt text](pictures/Imran_model_architecture.png)
+
+### Tensorboard Result
+
+![alt text](pictures/Imran_tensorboard_epochloss.png)
+![alt text](pictures/Imran_tensorboard_epochmse.png)
 
 ### Actual vs Predicted Covid-19 Cases
 
@@ -35,10 +46,6 @@ This project aims to forecast the number of Covid-19 daily cases in Malaysia. Th
 ### Model Reports
 
 ![alt text](pictures/Imran_mse_mape_r2score.png)
-
-## Build With:
-
-![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white)![scikit-learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white)![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white)![Matplotlib](https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black)
 
 ## Acknowledgment of Data
 
