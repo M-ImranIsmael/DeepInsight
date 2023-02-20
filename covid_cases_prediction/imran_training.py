@@ -51,11 +51,13 @@ print(df.info())
 print(df.tail(5))
 #%%
 
+# Visual EDA: Daily New COVID-19 Cases in Malaysia (Train datasets)
 plt.figure()
-plt.plot(df["cases_new"])
+plt.plot(df["cases_new"], color="maroon")
 plt.xlabel("Days")
 plt.ylabel("New Cases")
 plt.title("Daily New COVID-19 Cases in Malaysia")
+plt.savefig("pictures/Imran_new_cases_plot.png", dpi=300, bbox_inches="tight")
 plt.show()
 
 #%% Step 4) Feature Selections
@@ -92,11 +94,13 @@ print(np.isnan(y_train).any())
 
 input_shape = np.shape(X_train)[1:]
 model = Sequential()
-model.add(LSTM(64, activation="relu", input_shape=input_shape, return_sequences=False))
+model.add(LSTM(64, activation="relu", input_shape=input_shape, return_sequences=True))
+model.add(Dropout(0.3))
+model.add(LSTM(32, activation="relu", input_shape=input_shape, return_sequences=False))
 model.add(Dropout(0.3))
 model.add(Dense(1, activation="linear"))
 model.summary()
-plot_model(model, show_shapes=True)
+plot_model(model, show_shapes=True, to_file="pictures/Imran_model_architecture.png")
 
 model.compile(optimizer="adam", loss="mse", metrics="mse")
 
@@ -116,9 +120,9 @@ hist = model.fit(
     X_train,
     y_train,
     batch_size=128,
-    epochs=300,
+    epochs=100,
     validation_data=(X_test, y_test),
-    callbacks=[tb_callback, es_callback],
+    callbacks=[tb_callback],
 )
 #%% Step 7) Model Analysis
 
@@ -127,6 +131,7 @@ plt.figure()
 plt.plot(hist.history["loss"])
 plt.plot(hist.history["val_loss"])
 plt.legend(["Training Loss", "Validation Loss"])
+plt.savefig("pictures/Imran_trainval_loss_.png", dpi=300, bbox_inches="tight")
 plt.show()
 
 #%% Testing with actual dataset
@@ -165,10 +170,26 @@ plt.figure()
 plt.plot(y_pred_actual, color="red")
 plt.plot(y_actual, color="blue")
 plt.legend(["Predicted Covid Cases", "Actual Covid Cases"])
+plt.savefig("pictures/Imran_predicted_vs_actual.png", dpi=300, bbox_inches="tight")
 plt.show()
 
 #%%
-print(mean_absolute_error(y_actual, y_pred_actual))
-print(mean_absolute_percentage_error(y_actual, y_pred_actual))
-print(r2_score(y_actual, y_pred_actual))
+print(f"Mean Absolute Error(MSE): {mean_absolute_error(y_actual, y_pred_actual)}")
+print(
+    f"Mean Absolute Percentage Error(MAPE): {mean_absolute_percentage_error(y_actual, y_pred_actual)}"
+)
+print(f"r2 Score: {r2_score(y_actual, y_pred_actual)}")
+
 #%% Step 8) Model Deployment
+
+# create directory
+dir_name = "model_and_pickle"
+if not os.path.exists(dir_name):
+    os.makedirs(dir_name)
+
+# save model
+model.save(os.path.join(dir_name, "model.h5"))
+
+# save scaler object
+with open(os.path.join(dir_name, "mms.pkl"), "wb") as f:
+    pickle.dump(mms, f)
