@@ -17,6 +17,7 @@ from sklearn.metrics import (
 from tensorflow import keras
 from keras import Sequential
 from keras.layers import Dense, Dropout, LSTM
+from keras.optimizers import Adam
 from keras.utils import plot_model
 from keras.callbacks import EarlyStopping, TensorBoard
 
@@ -24,16 +25,13 @@ from keras.callbacks import EarlyStopping, TensorBoard
 CSV_PATH = os.path.join(os.getcwd(), "datasets", "cases_malaysia_train.csv")
 df = pd.read_csv(CSV_PATH)
 
-
 #%% Step 2) EDA
 print(df.head(3))
 print(df.info())
 print(df.shape)
 
-plt.figure()
-plt.plot(df["cases_new"])
-plt.show()
 #%% Step 3) Data Cleaning
+# Format date column using datetime
 df["date"] = pd.to_datetime(df["date"], format="%d/%m/%Y")
 # Make sure to order by ascending date
 df = df.sort_values("date")
@@ -70,7 +68,7 @@ mms = MinMaxScaler()
 data = mms.fit_transform(np.expand_dims(data, axis=-1))
 
 #%%
-X_train, y_train = [], []  # Instatiate empty list
+X_train, y_train = [], []  # Instantiate empty list
 
 win_size = 30
 
@@ -94,15 +92,15 @@ print(np.isnan(y_train).any())
 
 input_shape = np.shape(X_train)[1:]
 model = Sequential()
-model.add(LSTM(64, activation="relu", input_shape=input_shape, return_sequences=True))
-model.add(Dropout(0.3))
-model.add(LSTM(32, activation="relu", input_shape=input_shape, return_sequences=False))
-model.add(Dropout(0.3))
+model.add(LSTM(64, input_shape=input_shape, return_sequences=True))
+model.add(LSTM(64, input_shape=input_shape, return_sequences=False))
+model.add(Dropout(0.2))
 model.add(Dense(1, activation="linear"))
 model.summary()
 plot_model(model, show_shapes=True, to_file="pictures/Imran_model_architecture.png")
 
-model.compile(optimizer="adam", loss="mape", metrics=["mape", "mse"])
+optimizer = Adam(learning_rate=0.01)
+model.compile(optimizer=optimizer, loss="mse", metrics=["mape", "mse"])
 
 #%% Tensorboard and fitting
 
@@ -114,15 +112,18 @@ tb_callback = TensorBoard(log_dir=log_dir)
 
 # To include early stopping to prevent overfitting
 
-es_callback = EarlyStopping(monitor="mape", baseline=0.09, mode='min', patience=30, restore_best_weights =True)
+es_callback = EarlyStopping(
+    monitor="val_mape", mode="min", patience=90, restore_best_weights=True
+)
 
 hist = model.fit(
     X_train,
     y_train,
-    batch_size=128,
+    validation_data=[X_test, y_test],
     epochs=300,
     callbacks=[tb_callback, es_callback],
 )
+
 #%% Step 7) Model Analysis
 
 print(hist.history.keys())
