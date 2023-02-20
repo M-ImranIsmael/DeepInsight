@@ -1,22 +1,44 @@
 # Covid-19 Daily Cases Prediction in Malaysia
 
-This project aims to forecast the number of Covid-19 daily cases in Malaysia. The daily cases data are obtained from the [Ministry of Health Malaysia's GitHub Repo](https://github.com/MoH-Malaysia/covid19-public).
+The COVID-19 pandemic has been a major public health crisis in Malaysia, with thousands of new cases reported every day. This project aims to use deep learning models to predict the number of new COVID-19 cases in Malaysia. The daily cases data are obtained from the [Ministry of Health Malaysia's GitHub Repo](https://github.com/MoH-Malaysia/covid19-public), which provides up-to-date data on the number of new COVID-19 cases in Malaysia.
 
-## Build With:
+## Build With
 
-<p align="left">  <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> <a href="https://www.tensorflow.org" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/tensorflow/tensorflow-icon.svg" alt="tensorflow" width="40" height="40"/> </a> <a href="https://scikit-learn.org/" target="_blank" rel="noreferrer"> <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="scikit_learn" width="40" height="40"/> </a> <a href="https://pandas.pydata.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/2ae2a900d2f041da66e950e4d48052658d850630/icons/pandas/pandas-original.svg" alt="pandas" width="40" height="40"/> </a>
+<p align="left">
+  <a href="https://www.python.org" target="_blank" rel="noreferrer">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/>
+  </a>
+  <a href="https://www.tensorflow.org" target="_blank" rel="noreferrer">
+    <img src="https://www.vectorlogo.zone/logos/tensorflow/tensorflow-icon.svg" alt="tensorflow" width="40" height="40"/>
+  </a>
+  <a href="https://scikit-learn.org/" target="_blank" rel="noreferrer">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="scikit_learn" width="40" height="40"/>
+  </a>
+  <a href="https://pandas.pydata.org/" target="_blank" rel="noreferrer">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/2ae2a900d2f041da66e950e4d48052658d850630/icons/pandas/pandas-original.svg" alt="pandas" width="40" height="40"/>
+  </a>
+  <a href="https://numpy.org/" target="_blank" rel="noreferrer">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/numpy/numpy-original.svg" alt="numpy" width="40" height="40"/>
+  </a>
+  <a href="https://matplotlib.org/" target="_blank" rel="noreferrer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/5/56/Matplotlib_logo.svg" alt="matplotlib" width="40" height="40"/>
+  </a>
+  <a href="https://code.visualstudio.com/" target="_blank" rel="noreferrer">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg" alt="vscode" width="40" height="40"/>
+  </a>
+</p>
 
 ## Directory Structure
 
 1. [datasets](https://github.com/M-ImranIsmael/Deep_Learning_Applications/tree/master/covid_cases_prediction/datasets):
 
-   - cases_malaysia_test.csv
-   - cases_malaysia_train.csv
+   - cases_malaysia_train.csv: for model training
+   - cases_malaysia_test.cs: for model testing
 
 2. [training.py](https://github.com/M-ImranIsmael/Deep_Learning_Applications/blob/master/covid_cases_prediction/imran_training.py):
 
    - Importing necessary libraries
-   - Loading and cleaning the data and EDA
+   - Loading, EDA, and data cleaning
    - Model selection and training using LSTM model
    - Model saving and testing on new datasets
 
@@ -24,30 +46,47 @@ This project aims to forecast the number of Covid-19 daily cases in Malaysia. Th
 
 4. [pictures](https://github.com/M-ImranIsmael/Deep_Learning_Applications/tree/master/covid_cases_prediction/pictures): plots and results
 
-## Results
+# Results
 
-### Daily New COVID-19 Cases in Malaysia Plot
+## Daily New COVID-19 Cases in Malaysia Plot
 
 ![alt text](pictures/Imran_new_cases_plot.png)
 
-### LSTM Model Architecture
+## LSTM Model Architecture
+
+The architecture consists of two LSTM layers with 64 units each, followed by a dropout layer to help prevent overfitting. The output of the second LSTM layer is then fed into a dense layer with a linear activation function that produces a single output value.
+
+Here is a summary of the model architecture:
 
 ![alt text](pictures/Imran_model_architecture.png)
 
-### Tensorboard Result
+## Tensorboard Result
 
+The two plots below show the training progress of the LSTM model using TensorBoard.
+
+The first plot shows the epoch loss for both the training and validation datasets. The loss is calculated as the difference between the predicted and actual values for each time step.
 ![alt text](pictures/Imran_tensorboard_epochloss.png)
+
+The second plot shows the epoch mean squared error (MSE) for both the training and validation datasets. MSE is another metric used to evaluate the performance of a regression model.
+
 ![alt text](pictures/Imran_tensorboard_epochmse.png)
 
-### Actual vs Predicted Covid-19 Cases
+## Actual vs Predicted Covid-19 Cases
+
+The plot shows the actual daily Covid-19 cases in Malaysia versus the predicted daily cases generated by the trained LSTM model.
+
+Overall, the model seems to capture the trend in the data, but there is still room for improvement in the model's predictive accuracy.
 
 ![alt text](pictures/Imran_predicted_vs_actual.png)
 
-### Model Reports
+## Model Reports
+
+The accuracy of the model is evaluated using metrics such as mean squared error (MSE), mean absolute percentage error (MAPE), and R-squared score.
 
 ![alt text](pictures/Imran_mse_mape_r2score.png)
 
-## Acknowledgment of Data
+# Acknowledgment of Data
 
 The dataset used in this project was obtained from:
 [Ministry of Health Malaysia's GitHub Repo](https://github.com/MoH-Malaysia/covid19-public).
+The Ministry of Health (MoH) is a governmental organization in Malaysia responsible for managing the country's health system, including public health, medical research, health promotion, and patient safety.
