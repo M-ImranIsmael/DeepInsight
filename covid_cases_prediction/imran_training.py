@@ -102,7 +102,7 @@ model.add(Dense(1, activation="linear"))
 model.summary()
 plot_model(model, show_shapes=True, to_file="pictures/Imran_model_architecture.png")
 
-model.compile(optimizer="adam", loss="mse", metrics="mse")
+model.compile(optimizer="adam", loss="mape", metrics=["mape", "mse"])
 
 #%% Tensorboard and fitting
 
@@ -114,15 +114,14 @@ tb_callback = TensorBoard(log_dir=log_dir)
 
 # To include early stopping to prevent overfitting
 
-es_callback = EarlyStopping(monitor="loss", patience=3)
+es_callback = EarlyStopping(monitor="mape", baseline=0.09, mode='min', patience=30, restore_best_weights =True)
 
 hist = model.fit(
     X_train,
     y_train,
     batch_size=128,
-    epochs=100,
-    validation_data=(X_test, y_test),
-    callbacks=[tb_callback],
+    epochs=300,
+    callbacks=[tb_callback, es_callback],
 )
 #%% Step 7) Model Analysis
 
