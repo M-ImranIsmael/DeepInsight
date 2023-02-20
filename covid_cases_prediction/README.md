@@ -2,20 +2,31 @@
 
 This project aims to forecast the number of Covid-19 daily cases in Malaysia. The daily cases data are obtained from the [Ministry of Health Malaysia's GitHub Repo](https://github.com/MoH-Malaysia/covid19-public).
 
+## Directory Structure:
+
+1. [datasets](https://github.com/M-ImranIsmael/Deep_Learning_Applications/tree/master/covid_cases_prediction/datasets):
+
+   - cases_malaysia_test.csv
+   - cases_malaysia_train.csv
+
+2. [training.py](https://github.com/M-ImranIsmael/Deep_Learning_Applications/blob/master/covid_cases_prediction/imran_training.py) which consist of the following steps:
+
+   - Importing necessary libraries
+   - Loading and cleaning the data and EDA
+     ### Daily New COVID-19 Cases in Malaysia Plot
+     ![alt text](pictures/Imran_new_cases_plot.png)
+   - Model selection and training
+
+     ### LSTM Model Architecture
+
+     ![alt text](pictures/Imran_model_architecture.png)
+
+     ### Tensorboard Result
+
+     ![alt text](pictures/Imran_tensorboard_epochloss.png)
+     ![alt text](pictures/Imran_tensorboard_epochmse.png)
+
 ## Results:
-
-### Daily New COVID-19 Cases in Malaysia Plot
-
-![alt text](pictures/Imran_new_cases_plot.png)
-
-### LSTM Model Architecture
-
-![alt text](pictures/Imran_model_architecture.png)
-
-### Tensorboard Result
-
-![alt text](pictures/Imran_tensorboard_epochloss.png)
-![alt text](pictures/Imran_tensorboard_epochmse.png)
 
 ### Actual vs Predicted Covid-19 Cases
 
