@@ -37,7 +37,7 @@ This project aims to use deep learning models to automatically categorize articl
 
 - [pictures](https://github.com/M-ImranIsmael/Deep_Learning_Applications/tree/master/multiclass_text_classification/pictures): Folder containing plots and results, including confusion matrix and training/validation accuracy/loss graphs.
 
-- [saved_models](https://github.com/M-ImranIsmael/Deep_Learning_Applications/tree/master/multiclass_text_classification/saved_models): Folder containing plots and results, including confusion matrix and training/validation accuracy/loss graphs.
+- [saved_models](https://github.com/M-ImranIsmael/Deep_Learning_Applications/tree/master/multiclass_text_classification/saved_models): Folder containing saved trained model, one-hot-encoder, and tokenizer used for encoding/tokenizing data.
 
 # Results
 
