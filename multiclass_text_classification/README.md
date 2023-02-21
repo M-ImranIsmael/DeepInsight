@@ -30,15 +30,14 @@ This project aims to use deep learning models to automatically categorize articl
 
 ## Directory Structure:
 
-- training.py: This script contains the code for training the deep learning model. It includes loading and preprocessing the data, defining and compiling the model, and fitting the model to the training data.
+- [training.py](https://github.com/M-ImranIsmael/Deep_Learning_Applications/blob/master/multiclass_text_classification/training.py): Contains code for loading/preprocessing data, defining/compiling/fitting the LSTM model.
 
-- module.py: This module contains the functions used in the training script, including clean_text function that uses regular expressions to remove URLs, special characters, and numbers, model_lstm function that defines the architecture of the LSTM model, and plot_hist function that plots the training and validation accuracy and loss.
+- [module.py](https://github.com/M-ImranIsmael/Deep_Learning_Applications/blob/master/multiclass_text_classification/module.py): Contains functions for cleaning text, defining the LSTM model architecture, and plotting training/validation accuracy/loss.
+- [main.py](https://github.com/M-ImranIsmael/Deep_Learning_Applications/blob/master/multiclass_text_classification/main.py): Deploys/tests trained model with user input, cleans/preprocesses input, and uses loaded model to make predictions.
 
-- main.py: This script deploys and tests the trained model with real-world articles. It loads the saved model and preprocessing objects, accepts user input, cleans and preprocesses the input, and uses the loaded model to make predictions on the input.
+- [pictures](https://github.com/M-ImranIsmael/Deep_Learning_Applications/tree/master/multiclass_text_classification/pictures): Folder containing plots and results, including confusion matrix and training/validation accuracy/loss graphs.
 
-- pictures: This folder contains plots and results of the model, including the confusion matrix and training/validation accuracy and loss graphs.
-
-- saved_models: This folder contains the saved trained model, one-hot-encoder (ohe.pkl) used to encode the target variable, and tokenizer (tokenizer.json) used to tokenize the input data.
+- [saved_models](https://github.com/M-ImranIsmael/Deep_Learning_Applications/tree/master/multiclass_text_classification/saved_models): Folder containing plots and results, including confusion matrix and training/validation accuracy/loss graphs.
 
 # Results
 
@@ -47,6 +46,7 @@ This project aims to use deep learning models to automatically categorize articl
 The architecture consists of two LSTM layers with 64 units each, followed by a dropout layer to help prevent overfitting. The output of the second LSTM layer is then fed into a dense layer with a softmax activation function that produces 5 output values. The embedding layer at the beginning of the model converts the tokenized words into dense vectors of fixed size.
 
 Here is a summary of the model architecture:
+
 ![alt text](pictures/Imran_model_architecture.png)
 
 ## Tensorboard Result
