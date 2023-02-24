@@ -24,6 +24,9 @@ This repository contains a collection of deep learning projects covering various
 
    Classify customer reviews as positive or negative. (Binary Time-Series Classification)
 
+6. [Multiclass Text Classification (Articles)](https://github.com/M-ImranIsmael/Deep_Learning_Applications/tree/master/multiclass_text_classification)
+   Classify articles based on their topics. It aims to predict whether an article belongs to one of five categories: sport, business, politics, tech, or entertainment.
+
 ## Regression Problems
 
 1. [Auto Price Prediction](https://github.com/M-ImranIsmael/Deep_Learning_Applications/tree/master/autopart_price_prediction):
@@ -45,6 +48,10 @@ This repository contains a collection of deep learning projects covering various
 5. [Top Glove Stock Price Prediction](https://github.com/M-ImranIsmael/Deep_Learning_Applications/tree/master/top_glove_prediction) (Time-Series Data):
 
    Predict the stock price of Top Glove, a leading manufacturer of gloves. (Time-Series Regression)
+
+6. [Daily Covid Cases Prediction](https://github.com/M-ImranIsmael/Deep_Learning_Applications/tree/master/covid_cases_prediction) (Time-Series Data):
+
+   Predict the trend of daily Covid-19 cases in Malaysia.
 
 Each project folder contains all the necessary files, including scripts for training and testing, data files, and any saved models or intermediate outputs.
 
