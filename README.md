@@ -25,6 +25,7 @@ This repository contains a collection of deep learning projects covering various
    Classify customer reviews as positive or negative. (Binary Time-Series Classification)
 
 6. [Multiclass Text Classification (Articles)](https://github.com/M-ImranIsmael/Deep_Learning_Applications/tree/master/multiclass_text_classification)
+
    Classify articles based on their topics. It aims to predict whether an article belongs to one of five categories: sport, business, politics, tech, or entertainment.
 
 ## Regression Problems
@@ -80,3 +81,5 @@ The projects in this repository are made possible through the use of the followi
 - [Medical Insurance Prediction](https://github.com/stedy/Machine-Learning-with-R-datasets/blob/master/insurance.csv)
 - [BTC Price Prediction]()
 - [Top Glove Stock Price Prediction](https://finance.yahoo.com/quote/7113.KL/history/)
+- [Covid-19 Datasets Malaysia](https://github.com/MoH-Malaysia/covid19-public)
+- [Multiclass Text Classification](https://github.com/susanli2016/PyCon-Canada-2019-NLP-Tutorial)
